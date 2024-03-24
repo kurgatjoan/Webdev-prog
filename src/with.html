@@ -1,0 +1,127 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+  
+</head>
+<body>
+  <!-- <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1> -->
+
+  <!--parent-->
+  <div class="h-screen flex">
+    <!--leftpane-->
+    <div class="bg-blue-950 h-full w-1/6">
+      <header class="text-black text-2xl font-bold p-4">Logo</header>
+      <div class=" font-serif text-white">
+        <div>
+            <ul class="menu menu-md flex-col ml-3">
+                <li><a href="wallet.html" class="p-2  hover:text-black duration-500 flex"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\wallet (2).png" class="w-6 h-6 " alt="wallet icon"> Wallet</a></li>
+                <li> <a href="send.html" class="p-2  hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\send.png" class="w-6 h-6 " alt="send icon">Send Money</a></li>
+                <li>  <a href="#" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\money-withdrawal.png" class="w-6 h-6 " alt="withdraw icon">Withdraw Money</a></li>
+                <li> <a href="receipts.html" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\receipt.png" class="w-6 h-6 " alt="receipts icon">Receipts</a></li>
+                <li> <a href="groups.html" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\group.png" class="w-6 h-6 " alt="group icon">Groups</a></li>
+              </ul>
+
+        </div>
+        <div>
+            <ul class="menu menu-md flex-col ml-3 p-2 absolute bottom-0 left-0">
+                <li> <a href="Settings.html" class="p-0 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\settings.png" class="w-6 h-6 " alt="settings icon">Settings</a></li>
+                <div class="divider w-48 p-0"></div> 
+                <li> <a href="user.html" class="p-0 font-bold hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\user (1).png" class="w-6 h-6 " alt="user icon">User</a></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <!--rightpane-->
+    <div class="bg-white w-5/6 h-full">
+      <!--navbar-->
+      <div>
+
+        <div class="navbar bg-white text-amber-600 ">
+          <div class="flex-none">
+           
+      
+            </button>
+          </div>
+        
+            <div class="flex p-2"></div>
+                <div class="grid justify-start mt-8 ml-6">
+                    <label for="phoneNumber" class="text-black flex justify-center">Phone number</label>
+                    <input type="text" id="phoneNumber" placeholder="Enter phone number" class="rounded-lg border-2 border-amber-600 bg-white ml-0 p-4 text-black">
+                </div>
+                <div class="grid justify-center mt-8 ml-8">
+                    <label for="amount" class="text-black flex justify-center">Amount</label>
+                    <input type="text" id="amount" placeholder="Enter amount" class="rounded-lg border-2 bg-white border-amber-600 ml-0 p-4 text-black">
+                </div>
+            </div>
+            <div class="justify-between mt-4 ml-4">
+                <button id="withdraw-btn" class="btn border-none bg-yellow-200 flex ml-44 rounded-full text-black" onclick="withdraw(500), console.table(transactions)">
+                    <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\withdraw.png" class="w-6 h-6" />
+                    Withdraw Money
+                </button>
+            </div>
+        </div>
+
+      
+      
+          </div> 
+
+    <div>
+        <div class="grid">
+            <div class="flex ml-3 text-2xl">
+          <div class="card w-96 bg-white shadow-lg ml-7 flex text-2xl mt-3 p-2 text-cyan-700 font-serif font-bold">
+              <div class="card-body p-1"> <!-- Add p-2 class to reduce padding -->
+                  Balance <br>
+                  KSH. 50,000
+              </div>
+          </div>
+          <div class="card w-96 bg-white shadow-lg ml-7 flex text-2xl mt-3 p-2 text-cyan-700 font-serif font-bold">
+            <div class="card-body p-1"> <!-- Add p-2 class to reduce padding -->
+                Withdraw<br>
+                KSH. 0
+            </div>
+            </div>
+            </div>
+        
+          </div>       
+           <div class="grid">
+            <div class="flex p-2 ">
+              <div class=" grid justify-start mt-8 ml-6 ">
+              <label for="phoneNumber" class="text-black flex justify-center">Phone number</label>
+              <input type="text" id="phoneNumber" placeholder="Enter phone number" class="rounded-lg border-2 border-amber-600 bg-white ml-0 p-4 text-black">
+              </div>
+              <div class=" grid justify-center mt-8 ml-8">
+              <label for="amount" class="text-black flex justify-center">Amount</label>
+              <input type="text" id="amount" placeholder="Enter amount" class="rounded-lg border-2 bg-white border-amber-600 ml-0 p-4 text-black">
+              </div>
+            </div>
+            <div class="justify-between mt-4 ml-4">
+              <button  id="withdraw-btn" class="btn border-none bg-yellow-200 flex ml-44 rounded-full text-black" onclick="withdraw(500), console.table(transactions)">
+                <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\withdraw.png" class="w-6 h-6" />
+                Withdraw Money
+              </button>
+            </div>
+    <script src = "./withdraw.js"></script>
+          </div>
+
+        <div>
+</form>
+
+      </div>
+      
+      
+
+        
+        
+
+          
+    </div>
+  </div>
+ 
+</body>
+</html>

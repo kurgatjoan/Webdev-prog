@@ -1,0 +1,139 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+  <script src="./assignment.js"></script>
+</head>
+<body>
+  <!-- <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1> -->
+
+  <!--parent-->
+  <div class="h-screen flex">
+    <!--leftpane-->
+    <div class="bg-blue-950 h-full w-1/6">
+      <header class="text-black text-2xl font-bold p-4">logo</header>
+      <div class=" font-serif text-white">
+        <div>
+            <ul class="menu menu-md flex-col ml-3">
+                <li><a href="#" class="p-2  hover:text-black duration-500 flex"><i><img src="wallet (2).png" class="w-6 h-6 " alt="wallet icon"></i> Wallet</a></li>
+                <li> <a href="send.html" class="p-2  hover:text-black duration-500"><i><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\send.png" class="w-6 h-6 " alt="send icon"></i>Send Money</a></li>
+                <li>  <a href="withdraw.html" class="p-2 hover:text-black duration-500"><i><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\money-withdrawal.png" class="w-6 h-6 " alt="withdraw icon"></i>Withdraw Money</a></li>
+                <li> <a href="receipts.html" class="p-2 hover:text-black duration-500"><i><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\receipt.png" class="w-6 h-6 " alt="receipts icon"></i>Receipts</a></li>
+                <li> <a href="groups.html" class="p-2 hover:text-black duration-500"><i><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\group.png" class="w-6 h-6 " alt="group icon"></i>Groups</a></li>
+              </ul>
+
+        </div>
+        <div>
+            <ul class="menu menu-md flex-col ml-3 p-2 absolute bottom-0 left-0">
+                <li> <a href="Settings.html" class="p-0 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\settings.png" class="w-6 h-6 " alt="settings icon">Settings</a></li>
+                <div class="divider w-48 p-0"></div> 
+                <li> <a href="user.html" class="p-0 font-bold hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\user (1).png" class="w-6 h-6 " alt="user icon">User</a></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <!--rightpane-->
+    <div class="bg-white w-5/6 h-full">
+      <!--navbar-->
+      <div >
+
+        <div class="navbar bg-white text-amber-600">
+
+         <div class="grid">
+            <label for="withdraw cash" class="text-4xl font-bold text-pretty ml-7 text-black">My Wallet</label>
+            <p class="ml-7 text-pretty text-sm">Manage your money with ease</p>
+            
+          </div>
+         
+        </div>
+
+      </div>
+
+      <div>
+        
+        <div>
+        
+          <div class="flex ml-3 text-xl">
+            <div class="card w-96 bg-white shadow-lg ml-7 flex text-xl mt-0 text-cyan-700 font-medium font-serif">
+                <div class="card-body p-1"> <!-- Add p-2 class to reduce padding -->
+                    <div class="card-actions justify-end ">
+                        <button class="btn btn-ghost btn-sm">
+                            <i><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\menu.png" class="h-6 w-6" viewBox="80 80 24 24"></i>
+                        </button>
+                    </div>
+                    <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\wave.png" class="w-10 h-10">
+                    Hi Andrew!<br>
+                    Your balance is KSH. 50,000
+                </div>
+            </div>
+            
+            <div class="card w-48 bg-white shadow-lg ml-7 flex flex-col justify-center text-xl mt-10 text-cyan-700 font-medium font-serif">
+                <div class="card-body p-2"> <!-- Add p-2 class to reduce padding -->
+                   
+                    <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\send.png" class="w-10 h-10">
+                    Send Money
+                </div>
+            </div>
+
+            <div class="card w-48 bg-white shadow-lg ml-7 flex flex-col justify-center text-xl mt-10 text-cyan-700 font-medium font-serif">
+                <div class="card-body p-2"> <!-- Add p-2 class to reduce padding -->
+                   
+                    <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\money-withdrawal.png" class="w-10 h-10 ml-16">
+                    Withdraw Money
+                </div>
+            </div>
+           
+          
+          </div>
+
+</div>
+
+       
+        <!-- <div class="balance-box">
+          <p id="balance-message"></p>
+        </div> -->
+        <!-- <div>
+          <title class="text-3xl font-bold p-4">My Wallet</title>
+          <p>Hi Andrew, Your balance is 50000</p>
+        </div> -->
+
+        <div class="flex justify-end mt-8 mr-4">
+          <input type="text" id="search" placeholder="  Search " class="rounded-lg bg-white border-2 border-solid border-amber-600 text-black" >
+          <button class="btn border-none bg-yellow-200 ml-3 rounded-full" onclick="searchPhoneNumber()">
+          <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\search.png" class="w-4 h-4" />
+          </button>
+        </div>
+        <table>
+          <thead>
+            <caption class=" flex text-xl font-bold p-0 caption-left mt-0 ml-7 text-black "> Recent Transactions</caption>
+            <tr class=" flex ml-0 justify-evenly" >
+              <th class="text-xl font-bold p-4 ml-0 text-black">Transaction ID</th>
+              <th class="text-xl font-bold p-4 ml-14 text-black ">Name</th>
+              <th class="text-xl font-bold p-4 ml-14 text-black ">Date</th>
+              <th class="text-xl font-bold p-4 ml-14 text-black ">Status</th>
+              <th class="text-xl font-bold p-4 ml-14 text-black ">Amount</th>
+            </tr>
+          </thead>
+          <tbody id="transactionTable">
+
+            <script>
+               console.table(transactions);
+              const transactionTable = document.getElementById('transactionTable');
+              transactionTable.innerHTML = console.table(transactions);
+            </script>
+           
+
+          
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+  <script src="./assignment.js"></script>
+</head>
+<body>
+  <!-- <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1> -->
+
+  <!--parent-->
+  <div class="h-screen flex">
+    <!--leftpane--> 
+    <div class="bg-blue-950 h-full w-1/6">
+      <header class="text-black text-2xl font-bold p-4">Logo</header>
+      <div class=" font-serif text-white">
+        <div>
+            <ul class="menu menu-md flex-col ml-3">
+                <li><a href="wallet.html" class="p-2  hover:text-black duration-500 flex"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\wallet (2).png" class="w-6 h-6 " alt="wallet icon"> Wallet</a></li>
+                <li> <a href="send.html" class="p-2  hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\send.png" class="w-6 h-6 " alt="send icon">Send Money</a></li>
+                <li>  <a href="withdraw.html" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\money-withdrawal.png" class="w-6 h-6 " alt="withdraw icon">Withdraw Money</a></li>
+                <li> <a href="#" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\receipt.png" class="w-6 h-6 " alt="receipts icon">Receipts</a></li>
+                <li> <a href="groups.html" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\group.png" class="w-6 h-6 " alt="group icon">Groups</a></li>
+              </ul>
+
+        </div>
+        <div>
+            <ul class="menu menu-md flex-col ml-3 p-2 absolute bottom-0 left-0">
+                <li> <a href="Settings.html" class="p-0 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\settings.png" class="w-6 h-6 " alt="settings icon">Settings</a></li>
+                <div class="divider w-48 p-0"></div> 
+                <li> <a href="user.html" class="p-0 font-bold hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\user (1).png" class="w-6 h-6 " alt="user icon">User</a></li>
+            </ul>
+        </div>
+      </div>
+      
+    </div>
+    <!--rightpane-->
+    <div class="bg-white w-5/6 h-full">
+      <!--navbar-->
+      <div>
+
+        <div class="navbar bg-white text-amber-600 ">
+            <div class="flex-none">
+             
+        
+              </button>
+            </div>
+           <div class="grid">
+              <label for="withdraw cash" class="text-4xl font-bold text-pretty ml-7 text-black">Receipts</label>
+              <p class="ml-7 text-pretty text-sm">Manage your money with ease</p>
+            </div>
+            
+          </div>
+
+      </div>
+
+      <div>
+        
+          
+            <div class="balance-box flex text-2xl mt-3 bg-white text-cyan-700 p-2 rounded-lg justify-start h-fit w-96  ml-7 font-medium font-serif border-solid border-2 border-blue-950 border-sh">
+                <p id="balance-message" class="m-0 text-sm">
+                </p>
+                <p class="text-black text-2xl font-bold bg-white flex">
+                  Balance: <br>
+                  KSH. 50,000
+                </p>
+                <!--To revisit-->
+                <script>
+                  document.addEventListener('DOMContentLoaded', () => {
+                  const balanceBox = document.querySelector('.balance-box');
+                  const balanceMessage = document.querySelector('#balance-message');
+                  balanceMessage.textContent = `Your balance is ${user.amount}.`;
+                  balanceBox.style.display = 'block';
+                });
+      
+                </script>
+              </div>
+            </div>
+            
+           
+
+</div>
+</div>
+</div>
+</body>
+</html>
+
+          <div class="card w-96 bg-amber-300 shadow-xl ml-7">
+            <div class="card-body">
+              <div class="card-actions justify-end ">
+                <button class="btn btn-ghost btn-sm">
+                    <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\menu.png" class="h-6 w-6" viewBox="0 0 24 24" >
+                </button>
+                
+              </div>
+              <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\wave.png" class="w-6 h-6" > 
+                Hi Andrew!<br>
+                Your balance is KSH. 50,000
+            </div>
+          </div>
+       
+
+     
+      </div>
+    </div>
+  </div>
+</body>
+</html>

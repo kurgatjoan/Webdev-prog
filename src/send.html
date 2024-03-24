@@ -1,0 +1,152 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+ 
+</head>
+<body>
+
+  <!--parent-->
+  <div class="h-screen flex">
+    <!--leftpane-->
+    <div class="bg-blue-950 h-full w-1/6">
+      <header class="text-black text-2xl font-bold p-4">Logo</header>
+      <div class=" font-serif text-white">
+        <div>
+            <ul class="menu menu-md flex-col ml-3">
+                <li><a href="wallet.html" class="p-2  hover:text-black duration-500 flex"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\wallet (2).png" class="w-6 h-6 " alt="wallet icon"> Wallet</a></li>
+                <li> <a href="#" class="p-2  hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\send.png" class="w-6 h-6 " alt="send icon">Send Money</a></li>
+                <li>  <a href="withdraw.html" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\money-withdrawal.png" class="w-6 h-6 " alt="withdraw icon">Withdraw Money</a></li>
+                <li> <a href="receipts.html" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\receipt.png" class="w-6 h-6 " alt="receipts icon">Receipts</a></li>
+                <li> <a href="groups.html" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\group.png" class="w-6 h-6 " alt="group icon">Groups</a></li>
+              </ul>
+
+        </div>
+        <div>
+            <ul class="menu menu-md flex-col ml-3 p-2 absolute bottom-0 left-0">
+                <li> <a href="Settings.html" class="p-0 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\settings.png" class="w-6 h-6 " alt="settings icon">Settings</a></li>
+                <div class="divider w-48 p-0"></div> 
+                <li> <a href="user.html" class="p-0 font-bold hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\user (1).png" class="w-6 h-6 " alt="user icon">User</a></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <!--rightpane-->
+    <div class="bg-white w-5/6 h-full">
+      <!--navbar-->
+      <div>
+       <div class="navbar bg-white text-amber-600 ">
+          <div class="flex-none">
+           
+      
+            </button>
+          </div>
+         <div class="grid">
+            <label for="withdraw cash" class="text-4xl font-bold text-pretty text-black ml-7 ">Send Cash</label>
+            <p class="ml-7 text-pretty text-sm">Manage your money with ease</p>
+          </div>
+         
+        </div>
+      </div>
+
+      <div>
+        <div class="flex ml-3 text-2xl">
+          <div class="card w-96 bg-white shadow-lg ml-7 flex text-2xl mt-3 p-2 text-cyan-700 font-serif font-bold">
+              <div class="card-body p-1"> <!-- Add p-2 class to reduce padding -->
+                  Balance <br>
+                  KSH. 50,000
+              </div>
+          </div>
+          </div>
+        
+       <div>
+        <div class="flex ml-12 mt-8 ">
+          <div>
+            <label for="chooserecipient" class="text-black text-2xl text-pretty  ml-7 font-bold">Choose Recipient</label>
+          </div>
+          <div class="flex justify-center  ml-16">
+            <input type="text" id="phoneNumber" placeholder="  Search" class="rounded-lg bg-white border-solid border-2 border-amber-600 text-lg text-black h-10" >
+            <button class="btn border-none bg-yellow-200  ml-3 rounded-full" onclick="searchPhoneNumber()">
+            <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\search.png" class="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+        <div class="flex ">
+          <div class="flex mt-4 ml-4">
+            <table class="border-collapse">
+                <!-- <tr class="flex ml-4 text-black justify-evenly"> -->
+                  <th class="border-2 border-solid border-black p-2 w-48 text-black">First Name</th>
+                 <th class="border-2 border-solid border-black p-2 w-48 text-black">Surname</th>
+                  <th class="border-2 border-solid border-black p-2 w-48 text-black">Phone Number</th>
+                                <script >
+                        const contacts = [
+                        {index: 1,fname: 'Jace',surname: 'Charles',ID: 34567898,phone: '079846355',pin: 345689,amount: 0},
+                        {index: 2,fname: 'Peter',surname: 'Simon',ID: 34567899, phone: '079846365', pin: 345699, amount: 0},
+                        {index: 3,fname: 'James',surname: 'Mathew',ID: 34567810,phone: '079846375',pin: 345677,amount: 0},
+                        {index: 4,fname: 'Thomas',surname: 'Anderson',ID: 34567812,phone: '079846654',pin: 345655,amount: 0},
+                        {index: 5,fname: 'Alvin',surname: 'Kiptoo',ID: 34567813,phone: '079846363',pin: 345666,amount: 0},
+                        {index: 6,fname: 'Mathew',surname: 'Jones',ID: 34567863,phone: '079846645',pin: 345574,amount: 0,},
+                        {index: 7,fname: 'John',surname: 'Alloy',ID: 34567964,phone: '079846388',pin: 345615,amount: 0,},
+                        {index: 8,fname: 'Brian',surname: 'Davis',ID: 34567879,phone: '079847659',pin: 345561,amount: 0,},
+                        {index: 9,fname: 'Beatrice',surname: 'Johnson',ID: 34567897,phone: '079846345',pin: 345678,amount: 50000,},
+                        {index: 10,fname: 'Mary',surname: 'heather',ID: 34566549,phone: '079846345',pin: 345459,amount: 50000,}
+                          ]
+                // Get the table element
+                const table = document.querySelector('table');
+  
+                // Iterate over the contacts array
+                contacts.forEach(contact => {
+                  // Create a new table row
+                  const row = document.createElement('tr');
+  
+                  // Create table cells for each contact property
+                  const fnameCell = document.createElement('td');
+                  fnameCell.textContent = contact.fname;
+                  row.appendChild(fnameCell);
+  
+                  const surnameCell = document.createElement('td');
+                  surnameCell.textContent = contact.surname;
+                  row.appendChild(surnameCell);
+  
+                  const phoneCell = document.createElement('td');
+                  phoneCell.textContent = contact.phone;
+                  row.appendChild(phoneCell);
+                  // Append the row to the table
+                  table.appendChild(row);
+                });</script>
+              </tbody>
+            </table>
+          </div>
+          <div class="grid grid-cols mt-4 p-1 ml-10"> 
+            <div class="grid justify-start text-black mt-4" >
+              <label for="amounttosend" class="text-black text-2xl text-pretty ml-40 font-bold">Enter Amount to Send</label>
+            </div>
+            <div class="grid justify-start text-black ml-44 mt-4">
+              <input type="text" id="amounttosend" placeholder="KSH." class="rounded-lg bg-white border-solid border-2 border-amber-600 text-lg text-black h-10">
+              <button class="btn border-none bg-yellow-200 mt-0 rounded-full text-black" onclick="send()">
+                <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\transfer.png" class="w-4 h-4" />
+                Send Money
+            </button>  
+            </div>  
+            </div>     
+        </div>
+
+
+     
+ 
+       
+          
+          
+      
+        
+    
+    
+  </div>
+  
+</body>
+</html>
+
+
