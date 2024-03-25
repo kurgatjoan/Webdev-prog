@@ -1,7 +1,7 @@
 // Get references to HTML elements
 const balanceElement = document.getElementById('balance');
 const withdrawElement = document.getElementById('withdraw');
-const withdrawForm = document.getElementById('transaction-form');
+const withdrawForm = document.getElementById('withdrawForm');
 const withdrawBtn = document.getElementById('withdraw-btn');
 
 // Add event listener to the withdrawal form submission
@@ -36,6 +36,7 @@ withdrawForm.addEventListener('submit', function(event) {
     const formattedWithdraw = '$' + currentWithdraw.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 
     // Update the text content of balance and withdrawal elements
+    setTimeout()
     balanceElement.innerText = formattedBalance;
     withdrawElement.innerText = formattedWithdraw;
 

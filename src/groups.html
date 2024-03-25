@@ -23,7 +23,6 @@
                 <li><a href="wallet.html" class="p-2  hover:text-black duration-500 flex"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\wallet (2).png" class="w-6 h-6 " alt="wallet icon"> Wallet</a></li>
                 <li> <a href="send.html" class="p-2  hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\send.png" class="w-6 h-6 " alt="send icon">Send Money</a></li>
                 <li>  <a href="withdraw.html" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\money-withdrawal.png" class="w-6 h-6 " alt="withdraw icon">Withdraw Money</a></li>
-                <li> <a href="receipts.html" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\receipt.png" class="w-6 h-6 " alt="receipts icon">Receipts</a></li>
                 <li> <a href="#" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\group.png" class="w-6 h-6 " alt="group icon">Groups</a></li>
               </ul>
 
@@ -38,8 +37,9 @@
       </div>
     </div>
     <!--rightpane-->
-    <div class="bg-white w-5/6 h-full">
+    <div class="bg-white w-5/6 h-full ">
       <!--navbar-->
+    <div class="ml-7">
       <div>
 
         <div class="navbar bg-white text-amber-600 ">
@@ -49,49 +49,160 @@
               </button>
             </div>
            <div class="grid">
-              <label for="withdraw cash" class="text-4xl font-bold text-pretty ml-7 text-black">Groups</label>
-              <p class="ml-7 text-pretty text-sm">Manage your money with ease</p>
+              <label for="withdraw cash" class="text-4xl font-bold text-pretty text-black">Groups</label>
+              <p class="text-pretty text-sm">Manage your money with ease</p>
             </div>
            
           </div>
 
       </div>
+      <div >
+        <div class="flex ">
+          <div class="flex mt-4 ">
+            <form name="myform" id="myform">
+              <table id="Saccotable">
+              
+                <thead>
+                  <caption class=" flex text-xl font-bold p-0 caption-left mt-0  text-black "> Sacco</caption>
+                  <tr>
+                    <th>First Name</th>
+                    <th>Surname</th>
+                    <th>Phone Number</th>
+                    <th>Select</th>
+                    <th> Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="text" name="fname" value=""></td>
+                    <td><input type="text" name="surname" value=""></td>
+                    <td><input type="text" name="phone" value=""></td>
+                    <td>
+                      
+                      <input type="checkbox" name="selected" value="true" onclick="showSendMoney()">
+                    </td>
+                    <td>
+                      
+                      <button type="button" class="delete-btn btn" >Delete</button>
+                    </td>
+                  </tr>
+                
+                </tbody>
+              </table>
+              
+              <button class="sacco-add-btn btn" class="btn">Add Contact</button>
+          </form>
+          <script>
+           
+              const tableBody = document.querySelector('#Saccotable tbody');
+              const addBtn = document.querySelector('.sacco-add-btn');
+              addbtn.addEventListener('click', () => {
+              const newRow = document.createElement('tr');
+              newRow.innerHTML = `
+              <td><input type="text" name="fname" value=""></td>
+              <td><input type="text" name="surname" value=""></td>
+              <td><input type="text" name="phone" value=""></td>
+              <td>
+             
+              <input type="checkbox" name="checkbox" value="true">
+              </td>
+              <td> 
+                <button class="delete-btn">Delete</button>
+              </td>
+              `;
+              
+              tableBody.appendChild(newRow);
+              });
+              const saccotable = document.getElementById("Saccotable");
+              table.addEventListener("input", () => {
+                
+              const saccoData = [];
+              for (let i = 0; i < saccotable.rows.length; i++) {
+              const row = saccotable.rows[i];
+              const rowData = {};
+              for (let j = 0; j< row.cells.length; j++) {
+                const cell = row.cells[j];
+                if (cell.firstChild && cell.firstChild.type === "text") {
+                  rowData[cell.firstChild.name] = cell.firstChild.value;
+                }
+                if (cell.firstChild && cell.firstChild.type === "checkbox") {
+                  rowData["checkbox"] = cell.firstChild.checked;
+                }
+              }
+              saccotableData.push(rowData);
+              }
+              localStorage.setItem("SaccoData", JSON.stringify(saccotableData));
+              });
+              //Delete button
+              saccotable.addEventListener('click', (event) => {
+                if (event.target.classList.contains('delete-btn')) {
+                  saccotable.deleteRow(event.target.closest('tr').rowIndex);
+                  saveData();
+                }
+              });
+               // Send amount to the selected contact
+               saccotable.addEventListener('click', (event) => {
 
-      <div>
+                if (event.target.parentElement.querySelector('input[type="checkbox"]').checked) {
+                  
+                  const amount = prompt('Enter an amount to be sent to this contact:');
+                  if (amount) {
+                    // Send the amount to the selected contact
+                    console.log(`Sending $${amount} to ${event.target.parentElement.previousElementSibling.querySelector('input[type="text"][name="fname"]').value} ${event.target.parentElement.previousElementSibling.querySelector('input[type="text"][name="surname"]').value}`);
+                  }
+                }
+              });
+
+              // Loading the table data from the local storage
+              window.addEventListener("load", () => {
+              const saccotableData = JSON.parse(localStorage.getItem("SaccoData"));
+              if (saccotableData) {
+              for (let i = 1; i < saccotableData.length; i++) {
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+                  <td><input type="text" name="fname" value="${saccotableData[i].fname}"></td>
+                  <td><input type="text" name="surname" value="${saccotableData[i].surname}"></td>
+                  <td><input type="text" name="phone" value="${saccotableData[i].phone}"></td>
+                  <td><input type="checkbox" name="checkbox" value="true" ${saccotableData[i].checkbox ? "checked" : ""}></td>
+                  
+                  <td> 
+                    <button class="delete-btn btn">Delete</button></td>
+                `;
+                saccotableBody.appendChild(newRow);
+              }
+              
+              }
+              });
+          </script>
+
+
+          </div>
+
+          <div id='sendmoney'  > 
+            <form id="sendMoneyForm" class=" grid grid-row-3 ml-16">
+              <label for="amounttosend" class="text-black text-2xl text-pretty  font-bold">Amount to Send</label>
+              <input type="text" id="amounttosend" placeholder="KSH." class="input input-bordered">
+              <button id="send-btn" type="submit" class="btn border-none bg-yellow-200  rounded-full text-black mt-5" >
+                  <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\transfer.png" class="w-4 h-4" />
+                  Send Money
+              </button>  
+            </form>
+            
+              
+            </div>     
+          </div>
+    
+      </div>
+
+      
+
+
+    </div>
         
-        <div class="flex ml-3 text-2xl">
-            <div class="card w-96 bg-white shadow-lg ml-7 flex text-2xl mt-3 p-2 text-cyan-700 font-serif font-bold">
-                <div class="card-body p-1"> <!-- Add p-2 class to reduce padding -->
-                    Balance <br>
-                    KSH. 50,000
-                </div>
-            </div>
-            </div>
        
 
 
-        <div class="flex justify-end mt-8 mr-4">
-          <input type="text" id="phoneNumber" placeholder="  Search " class="rounded-lg bg-white border-2 border-solid border-lime-500 text-black" >
-          <button class="btn border-none bg-lime-500 ml-3 rounded-full" onclick="searchPhoneNumber()">
-          <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\search.png" class="w-4 h-4" />
-          </button>
-        </div>
-        <table>
-          <thead>
-            <caption class=" flex text-xl font-bold p-0 caption-left mt-0 ml-7 text-black "> Recent Transactions</caption>
-            <tr class=" flex ml-0 justify-evenly" >
-              <th class="text-xl font-bold p-4 ml-0 text-black hover:text-lime-500 duration-500">Transaction ID</th>
-              <th class="text-xl font-bold p-4 ml-14 text-black hover:text-lime-500 duration-500">Name</th>
-              <th class="text-xl font-bold p-4 ml-14 text-black hover:text-lime-500 duration-500">Date</th>
-              <th class="text-xl font-bold p-4 ml-14 text-black hover:text-lime-500 duration-500">Status</th>
-              <th class="text-xl font-bold p-4 ml-14 text-black hover:text-lime-500 duration-500 ">Amount</th>
-            </tr>
-          </thead>
-          <tbody id="transactionTable">
-            <!-- Table rows will be dynamically generated here -->
-            
-          </tbody>
-        </table>
+        
       </div>
     </div>
   </div>

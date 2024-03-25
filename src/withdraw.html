@@ -23,7 +23,6 @@
                 <li><a href="wallet.html" class="p-2  hover:text-black duration-500 flex"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\wallet (2).png" class="w-6 h-6 " alt="wallet icon"> Wallet</a></li>
                 <li> <a href="send.html" class="p-2  hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\send.png" class="w-6 h-6 " alt="send icon">Send Money</a></li>
                 <li>  <a href="#" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\money-withdrawal.png" class="w-6 h-6 " alt="withdraw icon">Withdraw Money</a></li>
-                <li> <a href="receipts.html" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\receipt.png" class="w-6 h-6 " alt="receipts icon">Receipts</a></li>
                 <li> <a href="groups.html" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\group.png" class="w-6 h-6 " alt="group icon">Groups</a></li>
               </ul>
 
@@ -49,7 +48,7 @@
             </button>
           </div>
          <div class="grid">
-            <label for="withdraw cash" class="text-4xl font-bold text-pretty ml-7 text-black">Withdraw Cash</label>
+            <label for="withdraw cash" class="text-4xl font-bold text-pretty ml-7 text-cyan-700">Withdraw Cash</label>
             <p class="ml-7 text-pretty text-sm">Manage your money with ease</p>
           </div>
       
@@ -60,30 +59,39 @@
       
       <div>
         <div class="flex ml-3 text-2xl">
-          <div class="card w-96 bg-white shadow-lg ml-7 flex text-2xl mt-3 p-2 text-cyan-700 font-serif font-bold">
-              <div class="card-body p-1"> <!-- Add p-2 class to reduce padding -->
+          <div class="card w-96 bg-white shadow-lg ml-7 flex text-2xl mt-3 p-2 text-black font-serif font-bold">
+              <div id="balance"  class="card-body p-1"> 
                   Balance <br>
                   KSH. 50,000
               </div>
           </div>
-          </div>
-        <div class="grid">
-            <div class="flex p-2 ">
-              <div class=" grid justify-start mt-8 ml-6 ">
-              <input type="text" id="phoneNumber" placeholder="Enter phone number" class="input input-bordered">
-              </div>
-              <div class=" grid justify-center mt-8 ml-8">
-              <input type="text" id="amount" placeholder="Enter amount" class="input input-bordered">
-              </div>
+          <div id="withdraw" class="card w-96 bg-white shadow-lg flex text-2xl mt-3 p-2 text-black font-serif font-bold">
+            <div class="card-body p-1"> 
+                Withdrawn: <br>
+                KSH. 0
             </div>
-            <div class="mt-4">
-              <button class="btn border-none bg-yellow-200 flex ml-8 text-black" onclick="withdraw(500), console.table(transactions)">
-                <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\withdraw.png" class="w-6 h-6" />
-                Withdraw Money
-              </button>
-            </div>
-    
+        </div>
           </div>
+          <form id="withdrawForm">
+            <div class="grid">
+              <div class="flex p-2 ">
+                <div class=" grid justify-start mt-8 ml-6 ">
+                <input type="text" id="phoneNumber" placeholder="Enter phone number" class="input input-bordered">
+                </div>
+                <div class=" grid justify-center mt-8 ml-8">
+                <input type="text" id="amount" placeholder="Enter amount" class="input input-bordered">
+                </div>
+              </div>
+              <div class="mt-4">
+                <button id="withdraw-btn" type="submit" class="btn border-none bg-yellow-200 flex ml-8 text-black" onclick="withdraw(), console.table(transactions)">
+                  <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\withdraw.png" class="w-6 h-6" />
+                  Withdraw Money
+                </button>
+              </div>
+      
+            </div>
+          </form>
+        
 
       </div>
       
@@ -95,6 +103,10 @@
           
     </div>
   </div>
-  <script src="./assignment.js"></script>
+  <script>
+    localStorage.removeItem('transactions');
+console.log(localStorage);
+
+  </script>
 </body>
 </html>
