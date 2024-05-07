@@ -16,14 +16,13 @@
   <div class="h-screen flex">
     <!--leftpane-->
     <div class="bg-blue-950 h-full w-1/6">
-      <header class="text-black text-2xl font-bold p-4">Logo</header>
+      <header class="text-white text-2xl font-bold p-4">Bankers</header>
       <div class=" font-serif text-white">
         <div>
             <ul class="menu menu-md flex-col ml-3">
                 <li><a href="wallet.html" class="p-2  hover:text-black duration-500 flex"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\wallet (2).png" class="w-6 h-6 " alt="wallet icon"> Wallet</a></li>
                 <li> <a href="send.html" class="p-2  hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\send.png" class="w-6 h-6 " alt="send icon">Send Money</a></li>
                 <li>  <a href="#" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\money-withdrawal.png" class="w-6 h-6 " alt="withdraw icon">Withdraw Money</a></li>
-                <li> <a href="groups.html" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\group.png" class="w-6 h-6 " alt="group icon">Groups</a></li>
               </ul>
 
         </div>
@@ -40,25 +39,25 @@
     <div class="bg-white w-5/6 h-full">
       <!--navbar-->
       <div>
-
-        <div class="navbar bg-white text-amber-600 ">
-          <div class="flex-none">
-           
-      
-            </button>
+        <div>
+          <div>
+  
+            <div class="navbar bg-white text-amber-600 ">
+              <div class="flex-none">
+               
+          
+                </button>
+              </div>
+             <div class="grid">
+                <label for="withdraw cash" class="text-4xl font-bold text-pretty ml-7 text-cyan-700">Withdraw Cash</label>
+                <p class="ml-7 text-pretty text-sm">Manage your money with ease</p>
+              </div>
+          
+            </div>
+    
           </div>
-         <div class="grid">
-            <label for="withdraw cash" class="text-4xl font-bold text-pretty ml-7 text-cyan-700">Withdraw Cash</label>
-            <p class="ml-7 text-pretty text-sm">Manage your money with ease</p>
-          </div>
-      
         </div>
-
-      </div>
-
-      
-      <div>
-        <div class="flex ml-3 text-2xl">
+        <div class="flex text-2xl">
           <div class="card w-96 bg-white shadow-lg ml-7 flex text-2xl mt-3 p-2 text-black font-serif font-bold">
               <div id="balance"  class="card-body p-1"> 
                   Balance <br>
@@ -72,28 +71,33 @@
             </div>
         </div>
           </div>
-          <form id="withdrawForm">
-            <div class="grid">
-              <div class="flex p-2 ">
-                <div class=" grid justify-start mt-8 ml-6 ">
-                <input type="text" id="phoneNumber" placeholder="Enter phone number" class="input input-bordered">
-                </div>
-                <div class=" grid justify-center mt-8 ml-8">
+          <div class="ml-7 mt-4">
+            <form id="withdrawForm ">
+            
+              <input type="text" id="phoneNumber" placeholder="Enter phone number" class="input input-bordered ml-">
                 <input type="text" id="amount" placeholder="Enter amount" class="input input-bordered">
-                </div>
-              </div>
-              <div class="mt-4">
-                <button id="withdraw-btn" type="submit" class="btn border-none bg-yellow-200 flex ml-8 text-black" onclick="withdraw(), console.table(transactions)">
-                  <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\withdraw.png" class="w-6 h-6" />
-                  Withdraw Money
-                </button>
-              </div>
+               <button id="withdraw-btn"  type="submit" class="withdraw-btn btn border-none bg-yellow-200 flex mt-4 text-black"  console.table(transactions)">
+                <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\withdraw.png" class="w-6 h-6" />
+                Withdraw Money
+              </button>
+  
+              
+              
+            
+    
+          
+        </form>
+          </div>
+          
       
-            </div>
-          </form>
-        
-
       </div>
+      
+      
+
+               
+
+          
+    
       
       
 
@@ -103,10 +107,63 @@
           
     </div>
   </div>
+  
   <script>
-    localStorage.removeItem('transactions');
-console.log(localStorage);
-
+    // Get references to HTML elements
+    const balanceElement = document.getElementById('balance');
+    const withdrawElement = document.getElementById('withdraw');
+    const withdrawForm = document.getElementById('withdrawForm');
+    const withdrawBtn = document.querySelector(".withdraw-btn")
+  
+    // Function to update balance and withdraw amount
+    function updateBalanceAndWithdraw(amount) {
+      // Extract numerical balance value
+      let currentBalanceText = balanceElement.innerText.trim(); // Remove leading/trailing whitespace
+      let currentBalanceStr = currentBalanceText.split(' ')[1]; // Split by space and get the second part
+      let currentBalance = parseFloat(currentBalanceStr.replace(',', '')); // Remove commas and parse as float
+  
+      // Check if the user has sufficient balance for the withdrawal
+      if (currentBalance < amount) {
+        alert("You do not have sufficient balance to withdraw that amount.");
+        return;
+      }
+  
+      // Update balance and withdrawal amount
+      currentBalance -= amount;
+      const currentWithdraw = parseFloat(withdrawElement.innerText.split(' ')[1].replace(',', '')) + amount;
+  
+      // Format updated amounts with currency symbol and comma separation
+      const formattedBalance = 'KSH. ' + currentBalance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+      const formattedWithdraw = 'KSH. ' + currentWithdraw.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+  
+      // Update the text content of balance and withdrawal elements
+      balanceElement.innerText = formattedBalance;
+      withdrawElement.innerText = formattedWithdraw;
+  
+      // Reset the withdrawal input field
+      document.getElementById('amount').value = '';
+  
+      // Display success
+      alert(`Successfully withdrawn ${amount} KSH.`);
+    }
+  
+    // Add event listener to the withdrawal form submission
+    withdrawBtn.addEventListener('click', () =>{
+      event.preventDefault(); // Prevent the default form submission behavior
+  
+      // Get the value entered in the withdrawal input field
+      const withdrawAmount = parseFloat(document.getElementById('amount').value);
+  
+      // Check if the withdrawal amount is valid
+      if (isNaN(withdrawAmount) || withdrawAmount <= 0) {
+        alert("Please enter a valid withdrawal amount.");
+        return;
+      }
+  
+      // Call function to update balance and withdraw amount
+      updateBalanceAndWithdraw(withdrawAmount);
+    });
   </script>
+  
 </body>
 </html>

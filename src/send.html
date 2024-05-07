@@ -13,14 +13,13 @@
   <div class="h-screen flex">
     <!--leftpane-->
     <div class="bg-blue-950 h-full w-1/6">
-      <header class="text-black text-2xl font-bold p-4">Logo</header>
+      <header class="text-white text-2xl font-bold p-4">Bankers</header>
       <div class=" font-serif text-white">
         <div>
             <ul class="menu menu-md flex-col ml-3">
                 <li><a href="wallet.html" class="p-2  hover:text-black duration-500 flex"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\wallet (2).png" class="w-6 h-6 " alt="wallet icon"> Wallet</a></li>
                 <li> <a href="#" class="p-2  hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\send.png" class="w-6 h-6 " alt="send icon">Send Money</a></li>
                 <li>  <a href="withdraw.html" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\money-withdrawal.png" class="w-6 h-6 " alt="withdraw icon">Withdraw Money</a></li>
-                <li> <a href="groups.html" class="p-2 hover:text-black duration-500"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\group.png" class="w-6 h-6 " alt="group icon">Groups</a></li>
               </ul>
 
         </div>
@@ -72,11 +71,11 @@
             <div>
               <label for="chooserecipient" class="text-black text-2xl text-pretty  ml-7 font-bold">Choose Recipient</label>
             </div>
-            <div class="flex justify-center  ml-16">
-              <input type="text" id="amount" placeholder=" Search" class="input input-bordered"> <button class="btn border-none bg-yellow-200  ml-3 rounded-full" onclick="searchPhoneNumber()">
+            <!-- <div class="flex justify-center  ml-16">
+              <input type="text" id="amount" placeholder=" Search" class="input input-bordered"> <button class="btn border-none b  ml-3 " onclick="searchPhoneNumber()">
               <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\search.png" class="w-4 h-4" />
               </button>
-            </div>
+            </div> -->
           </div>
           <div class="flex ">
             <div class="flex mt-4 ">
@@ -283,9 +282,34 @@
                           } else {
                               alert("Please select a contact.");
                           }
+                        const sendtransaction = {
+                          amount: amount,
+                          
+                            firstName: selectedRow.querySelector('input[name="fname"]').value,
+                            lastName: selectedRow.querySelector('input[name="surname"]').value,
+                            phoneNumber: selectedRow.querySelector('input[name="phone"]').value
+                          }
+                        };
+                        const sendTable = []
+                        localStorage.setItem('sendTable', JSON.stringify(sendTable));
+                        sendTable.push(sendtransaction);
+                        localStorage.setItem('sendTable', JSON.stringify(sendTable)); 
+                      
                       }
-                  });
+                  );
+                  window.addEventListener('load', () => {
+    const storedBalance = localStorage.getItem('balance');
+    if (storedBalance) {
+      // Update the balance element with the stored balance
+      balanceElement.innerText = 'KSH. ' + parseFloat(storedBalance).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+    }
 
+    const lastTransaction = JSON.parse(localStorage.getItem('lastTransaction'));
+    if (lastTransaction) {
+      // You can use this data as needed, for example, display it to the user
+      console.log('Last transaction details:', lastTransaction);
+    }
+  });
                 </script>
               </div>     
             </div>

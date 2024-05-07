@@ -16,14 +16,13 @@
   <div class="h-screen flex">
     <!--leftpane-->
     <div class="bg-blue-950 h-full w-1/6">
-      <header class="text-black text-2xl font-bold p-4">logo</header>
+      <header class="text-white text-2xl font-bold p-4">Bankers</header>
       <div class=" font-serif text-white">
         <div>
             <ul class="menu menu-md flex-col ml-3">
                 <li><a href="#" class="p-2  hover:text-black duration-500 flex"><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\wallet (2).png" class="w-6 h-6 " alt="wallet icon"> Wallet</a></li>
                 <li> <a href="send.html" class="p-2  hover:text-black duration-500"><i><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\send.png" class="w-6 h-6 " alt="send icon"></i>Send Money</a></li>
                 <li>  <a href="withdraw.html" class="p-2 hover:text-black duration-500"><i><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\money-withdrawal.png" class="w-6 h-6 " alt="withdraw icon"></i>Withdraw Money</a></li>
-                <li> <a href="groups.html" class="p-2 hover:text-black duration-500"><i><img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\group.png" class="w-6 h-6 " alt="group icon"></i>Groups</a></li>
               </ul>
 
         </div>
@@ -45,7 +44,7 @@
         <div class="navbar bg-white text-amber-600">
 
          <div class="grid">
-            <label for="withdraw cash" class="text-4xl font-bold text-pretty  text-black">My Wallet</label>
+            <label for="withdraw cash" class="text-4xl font-bold text-pretty text-cyan-700 ">My Wallet</label>
             <p class="text-pretty text-sm">Manage your money with ease</p>
             
           </div>
@@ -56,7 +55,7 @@
           <div>
           
             <div class="flex text-xl">
-              <div class="card w-96 bg-white shadow-lg  flex text-xl mt-0 text-cyan-700 font-medium font-serif">
+              <div class="card w-96 bg-white shadow-lg  flex text-xl mt-0   text-black font-medium font-serif">
                   <div class="card-body p-1"> 
                       <div class="card-actions justify-end ">
                           <button class="btn btn-ghost btn-sm">
@@ -69,7 +68,7 @@
                   </div>
               </div>
               
-              <div class="card w-48 bg-white shadow-lg  flex flex-col justify-center text-xl mt-10 ml-7 text-cyan-700 font-medium font-serif">
+              <div class="card w-48 bg-white shadow-lg  flex flex-col justify-center text-xl mt-10 ml-7 text-black font-medium font-serif">
                   <div class="card-body p-2"> 
                      
                       <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\send.png" class="w-10 h-10">
@@ -77,7 +76,7 @@
                   </div>
               </div>
   
-              <div class="card w-48 bg-white shadow-lg  flex flex-col justify-center text-xl mt-10 ml-7 text-cyan-700 font-medium font-serif">
+              <div class="card w-48 bg-white shadow-lg  flex flex-col justify-center text-xl mt-10 ml-7 text-black font-medium font-serif">
                   <div class="card-body p-2"> 
                      
                       <img src="C:\Users\ELITEBOOK\Desktop\Webdev prog\src\images\money-withdrawal.png" class="w-10 h-10 ml-16">
@@ -105,14 +104,14 @@
                   <caption class=" flex text-xl font-bold p-0 caption-left mt-0  text-black "> Recent Transactions</caption>
                   <thead>
                     <tr>
-                      <th class="text-xl font-bold p-4 ml-0 text-black">Transaction ID</th>
+                      <!-- <th class="text-xl font-bold p-4 ml-0 text-black">Transaction ID</th>
                       <th class="text-xl font-bold p-4 ml-14 text-black ">Name</th>
                       <th class="text-xl font-bold p-4 ml-14 text-black ">Date</th>
                       <th class="text-xl font-bold p-4 ml-14 text-black ">Status</th>
-                      <th class="text-xl font-bold p-4 ml-14 text-black ">Amount</th>
+                      <th class="text-xl font-bold p-4 ml-14 text-black ">Amount</th> -->
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="tableTr">
                     <tr>
                       <td><input type="text" name="TransactionId" value=""></td>
                       <td><input type="text" name="Name" value=""></td>
@@ -129,39 +128,9 @@
                 
             </form>
             <script>
-              
-                const tableBody = document.querySelector('#myTable tbody');
-  
-                addBtn.addEventListener('click', () => {
-                const newRow = document.createElement('tr');
-                newRow.innerHTML = `
-                      <td><input type="text" name="TransactionId" value=""></td>
-                      <td><input type="text" name="Name" value=""></td>
-                      <td><input type="text" name="Date" value=""></td>
-                      <td><input type="text" name="Status" value=""></td>
-                      <td><input type="text" name="Amount" value=""></td>
-                 `;
                 
-                tableBody.appendChild(newRow);
-                });
-                const table = document.getElementById("tranTable");
-                table.addEventListener("input", () => {
-                  
-                const tableData = [];
-                for (let i = 0; i < table.rows.length; i++) {
-                const row = table.rows[i];
-                const rowData = {};
-                for (let j = 0; j< row.cells.length; j++) {
-                  const cell = row.cells[j];
-                  if (cell.firstChild && cell.firstChild.type === "text") {
-                    rowData[cell.firstChild.name] = cell.firstChild.value;
-                  }
-                 
-                }
-                tableData.push(rowData);
-                }
-                localStorage.setItem("tableData", JSON.stringify(tableData));
-                });
+              
+       
          
                   
             
@@ -170,24 +139,26 @@
                  
   
                 // Loading the table data from the local storage
+                tableTr = document.querySelector(".tableTr")
                 window.addEventListener("load", () => {
-                const tableData = JSON.parse(localStorage.getItem("tableData"));
-                if (tableData) {
-                for (let i = 1; i < tableData.length; i++) {
-                  const newRow = document.createElement('tr');
-                  newRow.innerHTML = `
-                    
-                    <td><input type="text" name="Transaction ID" value="${tableData[i].TransactionId}"></td>                  
-                    <td><input type="text" name="Name" value="${tableData[i].Name}"></td>
-                    <td><input type="text" name="Date" value="${tableData[i].Date}"></td>
-                    <td><input type="text" name="Status" value="${tableData[i].Status}"></td>
-                    <td><input type="text" name="Amount" value="${tableData[i].Amount}"></td>
-                  `;
-                  tableBody.appendChild(newRow);
-                }
-                
-                }
+                const tableData = JSON.parse(localStorage.getItem("sendTable"));
+                let html = ""
+                tableData.forEach((transaction)=>{
+                  html = `<tr>
+                    <th>${transaction.recipient}<th>
+                    <th>${transaction.firstName}<th>
+                     <th>${transaction.firstName}<th>`
+                  
                 });
+                tableTr.innerHTML = html;
+
+
+
+                
+                  
+                });
+
+                
             </script>
   
   
